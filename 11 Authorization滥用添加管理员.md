@@ -10,7 +10,8 @@
 ![image](https://github.com/hbdxmz/BugHuntLogger/assets/94107024/9e336f5a-c69e-4cd4-80d1-28be3ff9b4a5)  
 
 这里后台代码应该只是校验了Authorization 是否不为null且没过期，满足条件就会调用sys/user/add接口 执行在数据库插入新增用户的代码，并未校验这个Authorization的用户身份
-![image](https://github.com/hbdxmz/BugHuntLogger/assets/94107024/95cbb74f-bf7e-46ac-bae5-5d3c417adfc9)  
+![image](https://github.com/hbdxmz/BugHuntLogger/assets/94107024/24392324-f451-4dd0-8c7e-540300c71fb0)
+ 
 
 ![image](https://github.com/hbdxmz/BugHuntLogger/assets/94107024/bf01e00b-902e-4b8a-a5e5-188367c5bad1)
 
